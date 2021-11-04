@@ -1,1 +1,0 @@
-# tweetrip_app
