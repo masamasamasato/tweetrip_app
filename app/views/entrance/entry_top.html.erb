@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'entry_top', :media => "all" %>
+
+
+<div class="entry-container">
+<h1 class="contact-ttl">利用者権限取得</h1>
+  <div class="entry-about">
+  <p>
+このサービスを利用するためには利用者権限を取得する必要があります。
+</p>
+<p>
+運営が設定したパスワード、ユーザーIDを入力しご利用ください。
+</p>
+  </div>
+  <div class="form-body">
+    <%= form_tag("/login_tweetrip")do %>
+    <p>パスワードを打ち込んでください</p>
+    <input type="password" name="entry_password">
+    <p>ユーザーIDを打ち込んでください</p>
+    <input type="password" name="entry_user_id">
+    <p></p>
+    <input type="submit" value="ログイン">
+    <%end%>
+  </div>
+</div>

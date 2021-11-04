@@ -1,0 +1,35 @@
+.top-main{
+  height:800px;
+  background-image: url("/top.jpg");
+}
+
+.top-message{
+  position: fixed;
+  top:30%;
+  width: 100%;
+  text-align: center;
+  line-height: 8em; /*行の感覚を設定*/
+  font-weight:bold;
+	color: #03A9F4;
+	text-shadow: 
+		0.04em 0.02em 0 #B0BEC5, 
+		0.08em 0.05em 0 rgba(0, 0, 0, 0.6);
+}
+
+.top-main h2{
+  font-size: 70px;
+  font-weight:bold;
+	color: #03A9F4;
+	text-shadow: 
+		0.04em 0.02em 0 #B0BEC5, 
+		0.08em 0.05em 0 rgba(0, 0, 0, 0.6);
+}
+
+.top-main p{
+  font-size: 50px;
+  font-weight:bold;
+	color: #03A9F4;
+	text-shadow: 
+		0.04em 0.02em 0 #B0BEC5, 
+		0.08em 0.05em 0 rgba(0, 0, 0, 0.6);
+}

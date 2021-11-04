@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-height: 100vh;
+  position: relative; 
+  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
+    Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/*ヘッダー部分の定義*/
+header {
+  background-color: #a0cd3e;
+  width:100%; /*画面の横幅いっぱい*/
+  position: fixed;
+  height: 70px;
+  font-weight: bold;
+  display: flex; /*子要素を横並びにできる*/
+  justify-content: space-between; /*子要素どうしに間隔を作る*/
+  align-items: center;
+}
+
+.header-logo a:hover {
+  color: rgb(255, 251, 0);
+}
+
+header a {
+  color: white; 
+  text-decoration: none; 
+}
+
+
+header h1 {
+  color: white;
+  margin-left: 20px;
+  font-family: 'HanziPen SC',sans-serif;
+  
+}
+
+.header-list {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  font-family: 'HanziPen SC',sans-serif;
+}
+
+header ul {
+  display: flex;
+}
+
+header li {
+  list-style: none;
+  margin-right: 40px;
+}
+
+.header-list a:hover {
+  color: rgb(255, 251, 0);
+}
+
+
+footer {
+  color: white;
+  height: 30px;
+  background-color: #000;
+  bottom: 0;
+  width: 100%;
+  display: flex; /*並べ方を指定する時に便利*/
+  align-items: center; /*フレックスボックスに対する縦並びを揃える　この場合中央揃え*/
+  position: fixed;
+  justify-content: center; /*フレックスボックスに対する横並びを揃える　この場合中央揃え*/
+}

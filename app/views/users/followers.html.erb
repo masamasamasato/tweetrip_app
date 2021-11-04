@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag 'user_index', :media => "all" %>
+
+<div class="users-container">
+  <h3>フォロワー一覧</h3>
+
+  
+  <% @users.each do |t| %>
+      <div class="user">
+        <div class="upper-container">
+          <div class="left-container">
+            <%= image_tag t.image_url, size: "100x100", class:"user-image" if t.image? %>
+          </div>
+          <div class="right-container">
+            <%= t.name %>
+          </div>
+        </div>
+        <div class="lower-container">
+        <%= render 'relationships/follow_button', user: t %>
+          <%= link_to "詳細", user_path(t.id) %>
+          <p class="time"><%= t.created_at.to_s(:datetime_jp) %></p>
+        </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag 'post_index', :media => "all" %>
+
+<div class="posts-container">
+  <h3>投稿一覧</h3>
+  
+  <div class="search">
+  <li class="li1">投稿を検索</li>
+  <li class="li2">
+    <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+    <% end %>
+    </li>
+  </div>
+  <% @posts.each do |t| %>
+    <div class="post">
+      <div class="upper-container">
+        <div class="left-container">
+            <%= image_tag t.user.image_url, size: "100x100", class: "user-image" if t.user.image? %>
+            <div class="user-name">
+            <%= t.user.name %>
+            </div>
+          <div class "user-like">
+          <% if user_signed_in? %>
+          <% if current_user.already_liked?(t) %>
+             <%= link_to post_like_path(id: t.id, post_id: t.id), method: :delete do %>
+                <i class="fas fa-heart fa-fw"></i>
+             <% end %>
+             <%= t.likes.count %>
+          <% else %>
+             <%= link_to post_likes_path(id: t.id, post_id: t.id), method: :post do %>
+                <i class="far fa-heart fa-fw"></i>
+             <% end %>
+             <%= t.likes.count %>
+          <% end %>
+      <% else %>
+          <i class="far fa-heart fa-fw"></i>
+      <% end %>
+          </div>
+        </div>
+        <div class="right-container">
+          <%=  video_tag t.video_url ,:controls => true if t.video?%>
+          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          <%= t.content %>
+        </div>
+      </div>
+      <div class="lower-container">
+        <%= link_to "詳細", post_path(t.id) %>
+        <%= link_to "編集", edit_post_path(t.id) %>
+        <p class="time"><%= t.created_at.to_s(:datetime_jp) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,10 @@
+<%= stylesheet_link_tag 'post_edit', :media => "all" %>
+
+<div class="post_container">
+    <h3>投稿編集</h3>
+    <%= form_for @post do |f| %>
+        <%= f.label :content %>
+        <%= f.text_field :content, :size => 140 %> 
+        <%= f.submit "編集する" %>
+    <% end %>
+</div>

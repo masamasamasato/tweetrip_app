@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweeTrip</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+    <div class="header-logo">
+    
+    <h1><%= link_to "TweeTrip", root_path %></h1>
+    
+    </div>
+      <div class="header-list">
+      <ul>
+      <% if session[:entry_user_id]%>
+        <li><%= link_to "about TweeTrip", home_about_path %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to "posts index", posts_index_path %></li>
+        <li><%= link_to "users index", users_path %></li>
+        <li><%= link_to "new post", posts_new_path %></li>
+        <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+        <%end%>
+        <% %>
+        <% unless user_signed_in? %>
+        <li><%= link_to "login", posts_index_path %></li>
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <%end%>
+      <% else %>
+      <% end %>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Copyright © Tomidokoro_Masato All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
